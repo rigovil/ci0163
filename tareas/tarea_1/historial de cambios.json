@@ -1,0 +1,4467 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "Gross",
+    "description": "Remove column Gross"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "STARS",
+    "expression": "grel:if(value.split(\"|\").length() == 2, with(value.split(\"|\"), a, a[1]), value)",
+    "onError": "keep-original",
+    "newColumnName": "STARS2",
+    "columnInsertIndex": 6,
+    "description": "Create column STARS2 at index 6 based on column STARS using expression grel:if(value.split(\"|\").length() == 2, with(value.split(\"|\"), a, a[1]), value)"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "STARS",
+    "newColumnName": "DIRECTORS",
+    "description": "Rename column STARS to DIRECTORS"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DIRECTORS",
+    "expression": "grel:if(value.split(\"|\").length() == 2, value.split(\"|\")[0], \"Not found\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DIRECTORS using expression grel:if(value.split(\"|\").length() == 2, value.split(\"|\")[0], \"Not found\")"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "STARS2",
+    "newColumnName": "STARS",
+    "description": "Rename column STARS2 to STARS"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DIRECTORS",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DIRECTORS using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "STARS",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column STARS using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ONE-LINE",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ONE-LINE using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DIRECTORS",
+    "expression": "grel:if(value != \"Not found\", value.split(\"Director: \")[1], value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DIRECTORS using expression grel:if(value != \"Not found\", value.split(\"Director: \")[1], value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "STARS",
+    "expression": "grel:value.split(\"Stars: \")[1]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column STARS using expression grel:value.split(\"Stars: \")[1]"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "VOTES",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column VOTES using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "RunTime",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column RunTime using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "RATING",
+    "expression": "grel:value.toNumber()",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column RATING using expression grel:value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "VOTES",
+    "expression": "grel:value.replace(\",\", \"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column VOTES using expression grel:value.replace(\",\", \"\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "VOTES",
+    "expression": "grel:value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column VOTES using expression grel:value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "grel:value.split(\"–\")[0]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression grel:value.split(\"–\")[0]"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "grel:value.replace(\"(\", \"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression grel:value.replace(\"(\", \"\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "grel:value.replace(\")\", \"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression grel:value.replace(\")\", \"\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "GENRE",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column GENRE using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "MOVIES",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          " Sneakerheads",
+          "Sneakerheads"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Sneakerheads"
+      },
+      {
+        "from": [
+          " The Kominsky Method",
+          "The Kominsky Method"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "The Kominsky Method"
+      },
+      {
+        "from": [
+          " Dexter",
+          "Dexter"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dexter"
+      },
+      {
+        "from": [
+          " Selena: The Series",
+          "Selena: The Series"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Selena: The Series"
+      },
+      {
+        "from": [
+          " Chichipatos",
+          "Chichipatos"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Chichipatos"
+      },
+      {
+        "from": [
+          " Top Boy",
+          "Top Boy"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Top Boy"
+      },
+      {
+        "from": [
+          " Toy Boy",
+          "Toy Boy"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Toy Boy"
+      },
+      {
+        "from": [
+          " Ragnarok",
+          "Ragnarok"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Ragnarok"
+      },
+      {
+        "from": [
+          " Johnny Test",
+          "Johnny Test"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Johnny Test"
+      },
+      {
+        "from": [
+          " Undercover",
+          "Undercover"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Undercover"
+      },
+      {
+        "from": [
+          " Yasuke",
+          "Yasuke"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Yasuke"
+      },
+      {
+        "from": [
+          " On the Verge",
+          "On the Verge"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " On the Verge"
+      },
+      {
+        "from": [
+          " Le Bazar de la Charité",
+          "Le Bazar de la Charité"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Le Bazar de la Charité"
+      },
+      {
+        "from": [
+          " History of Swear Words",
+          "History of Swear Words"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " History of Swear Words"
+      },
+      {
+        "from": [
+          " Anne",
+          "Anne"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Anne"
+      },
+      {
+        "from": [
+          " Alguien tiene que morir",
+          "Alguien tiene que morir"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Alguien tiene que morir"
+      },
+      {
+        "from": [
+          " This Is a Robbery: The World's Biggest Art Heist",
+          "This Is a Robbery: The World's Biggest Art Heist"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " This Is a Robbery: The World's Biggest Art Heist"
+      },
+      {
+        "from": [
+          " 13 Reasons Why",
+          "13 Reasons Why"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " 13 Reasons Why"
+      },
+      {
+        "from": [
+          " Dirty Money",
+          "Dirty Money"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Dirty Money"
+      },
+      {
+        "from": [
+          " Avatar: The Last Airbender",
+          "Avatar: The Last Airbender"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Avatar: The Last Airbender"
+      },
+      {
+        "from": [
+          " Lucifer",
+          "Lucifer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Lucifer"
+      },
+      {
+        "from": [
+          " Stranger Things",
+          "Stranger Things"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Stranger Things"
+      },
+      {
+        "from": [
+          " Hollywood",
+          "Hollywood"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Hollywood"
+      },
+      {
+        "from": [
+          " Trese",
+          "Trese"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Trese"
+      },
+      {
+        "from": [
+          " Bling Empire",
+          "Bling Empire"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Bling Empire"
+      },
+      {
+        "from": [
+          " 800 metros",
+          "800 metros"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " 800 metros"
+      },
+      {
+        "from": [
+          " Equinox",
+          "Equinox"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Equinox"
+      },
+      {
+        "from": [
+          " Pacific Rim",
+          "Pacific Rim"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Pacific Rim"
+      },
+      {
+        "from": [
+          " Country Comfort",
+          "Country Comfort"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Country Comfort"
+      },
+      {
+        "from": [
+          " The Haunting of Bly Manor",
+          "The Haunting of Bly Manor"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Haunting of Bly Manor"
+      },
+      {
+        "from": [
+          " Baby",
+          "Baby"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Baby"
+      },
+      {
+        "from": [
+          " Behind Her Eyes",
+          "Behind Her Eyes"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Behind Her Eyes"
+      },
+      {
+        "from": [
+          " Glitch Techs",
+          "Glitch Techs"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Glitch Techs"
+      },
+      {
+        "from": [
+          " Masters of the Universe: Revelation",
+          "Masters of the Universe: Revelation"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Masters of the Universe: Revelation"
+      },
+      {
+        "from": [
+          " Girl From Nowhere",
+          "Girl From Nowhere"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Girl From Nowhere"
+      },
+      {
+        "from": [
+          " Mytho",
+          "Mytho"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Mytho"
+      },
+      {
+        "from": [
+          " Emily in Paris",
+          "Emily in Paris"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Emily in Paris"
+      },
+      {
+        "from": [
+          " Crime Scene: The Vanishing at the Cecil Hotel",
+          "Crime Scene: The Vanishing at the Cecil Hotel"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Crime Scene: The Vanishing at the Cecil Hotel"
+      },
+      {
+        "from": [
+          " Maid",
+          "Maid"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Maid"
+      },
+      {
+        "from": [
+          " Warrior Nun",
+          "Warrior Nun"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Warrior Nun"
+      },
+      {
+        "from": [
+          " Baki",
+          "Baki"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Baki"
+      },
+      {
+        "from": [
+          " From Scratch",
+          "From Scratch"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " From Scratch"
+      },
+      {
+        "from": [
+          " Tiny House Nation",
+          "Tiny House Nation"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Tiny House Nation"
+      },
+      {
+        "from": [
+          " The Hollow",
+          "The Hollow"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Hollow"
+      },
+      {
+        "from": [
+          " Breakfast, Lunch & Dinner",
+          "Breakfast, Lunch & Dinner"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Breakfast, Lunch & Dinner"
+      },
+      {
+        "from": [
+          " Dynasty",
+          "Dynasty"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Dynasty"
+      },
+      {
+        "from": [
+          " Unsolved Mysteries",
+          "Unsolved Mysteries"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Unsolved Mysteries"
+      },
+      {
+        "from": [
+          " Siempre Bruja",
+          "Siempre Bruja"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Siempre Bruja"
+      },
+      {
+        "from": [
+          " Astronomy Club",
+          "Astronomy Club"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Astronomy Club"
+      },
+      {
+        "from": [
+          " Power Rangers: Dino Fury",
+          "Power Rangers: Dino Fury"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Power Rangers: Dino Fury"
+      },
+      {
+        "from": [
+          " Poketto monsutâ",
+          "Poketto monsutâ"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Poketto monsutâ"
+      },
+      {
+        "from": [
+          " White Lines",
+          "White Lines"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " White Lines"
+      },
+      {
+        "from": [
+          " Julie and the Phantoms",
+          "Julie and the Phantoms"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Julie and the Phantoms"
+      },
+      {
+        "from": [
+          " Jiok",
+          "Jiok"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Jiok"
+      },
+      {
+        "from": [
+          " Paradise PD",
+          "Paradise PD"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Paradise PD"
+      },
+      {
+        "from": [
+          " Lugar de Mulher",
+          "Lugar de Mulher"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Lugar de Mulher"
+      },
+      {
+        "from": [
+          " Brews Brothers",
+          "Brews Brothers"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Brews Brothers"
+      },
+      {
+        "from": [
+          " I [Heart] Arlo",
+          "I [Heart] Arlo"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " I [Heart] Arlo"
+      },
+      {
+        "from": [
+          " Snowpiercer",
+          "Snowpiercer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Snowpiercer"
+      },
+      {
+        "from": [
+          " Rebecka Martinsson",
+          "Rebecka Martinsson"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Rebecka Martinsson"
+      },
+      {
+        "from": [
+          " The Pharmacist",
+          "The Pharmacist"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Pharmacist"
+      },
+      {
+        "from": [
+          " Queen Sono",
+          "Queen Sono"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Queen Sono"
+      },
+      {
+        "from": [
+          " Supergirl",
+          "Supergirl"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Supergirl"
+      },
+      {
+        "from": [
+          " Typewriter",
+          "Typewriter"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Typewriter"
+      },
+      {
+        "from": [
+          " Sorjonen",
+          "Sorjonen"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Sorjonen"
+      },
+      {
+        "from": [
+          " Trailer Park Boys: The Animated Series",
+          "Trailer Park Boys: The Animated Series"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Trailer Park Boys: The Animated Series"
+      },
+      {
+        "from": [
+          " Ultraman",
+          "Ultraman"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Ultraman"
+      },
+      {
+        "from": [
+          " Spirit Riding Free",
+          "Spirit Riding Free"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Spirit Riding Free"
+      },
+      {
+        "from": [
+          " The Lying Life of Adults",
+          "The Lying Life of Adults"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Lying Life of Adults"
+      },
+      {
+        "from": [
+          " Trico",
+          "Trico"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Trico"
+      },
+      {
+        "from": [
+          " Dead to Me",
+          "Dead to Me"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Dead to Me"
+      },
+      {
+        "from": [
+          " Super Monsters",
+          "Super Monsters"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Super Monsters"
+      },
+      {
+        "from": [
+          " Brigada Costa del Sol",
+          "Brigada Costa del Sol"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Brigada Costa del Sol"
+      },
+      {
+        "from": [
+          " The Chestnut Man",
+          "The Chestnut Man"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Chestnut Man"
+      },
+      {
+        "from": [
+          " Zero Chill",
+          "Zero Chill"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Zero Chill"
+      },
+      {
+        "from": [
+          " The Silent Sea",
+          "The Silent Sea"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Silent Sea"
+      },
+      {
+        "from": [
+          " Feel Good",
+          "Feel Good"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Feel Good"
+      },
+      {
+        "from": [
+          " Sonic Prime",
+          "Sonic Prime"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Sonic Prime"
+      },
+      {
+        "from": [
+          " Desenfrenadas",
+          "Desenfrenadas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Desenfrenadas"
+      },
+      {
+        "from": [
+          " Titans",
+          "Titans"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Titans"
+      },
+      {
+        "from": [
+          " Comedians in Cars Getting Coffee",
+          "Comedians in Cars Getting Coffee"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Comedians in Cars Getting Coffee"
+      },
+      {
+        "from": [
+          " Fedeltà",
+          "Fedeltà"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Fedeltà"
+      },
+      {
+        "from": [
+          " She-Ra and the Princesses of Power",
+          "She-Ra and the Princesses of Power"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " She-Ra and the Princesses of Power"
+      },
+      {
+        "from": [
+          " Feria: The Darkest Light",
+          "Feria: The Darkest Light"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Feria: The Darkest Light"
+      },
+      {
+        "from": [
+          " Power Rangers Beast Morphers",
+          "Power Rangers Beast Morphers"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Power Rangers Beast Morphers"
+      },
+      {
+        "from": [
+          " The Empress",
+          "The Empress"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Empress"
+      },
+      {
+        "from": [
+          " D.P.",
+          "D.P."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " D.P."
+      },
+      {
+        "from": [
+          " Angry Birds: Summer Madness",
+          "Angry Birds: Summer Madness"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Angry Birds: Summer Madness"
+      },
+      {
+        "from": [
+          " The Midnight Gospel",
+          "The Midnight Gospel"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Midnight Gospel"
+      },
+      {
+        "from": [
+          "I.T.",
+          "It"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "I.T."
+      },
+      {
+        "from": [
+          " Lupin",
+          "Lupin"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Lupin"
+      },
+      {
+        "from": [
+          " Mismatched",
+          "Mismatched"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Mismatched"
+      },
+      {
+        "from": [
+          " The Irregulars",
+          "The Irregulars"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Irregulars"
+      },
+      {
+        "from": [
+          " Jurassic World: Camp Cretaceous",
+          "Jurassic World: Camp Cretaceous"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Jurassic World: Camp Cretaceous"
+      },
+      {
+        "from": [
+          " Clickbait",
+          "Clickbait"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Clickbait"
+      },
+      {
+        "from": [
+          " The Sinner",
+          "The Sinner"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Sinner"
+      },
+      {
+        "from": [
+          " Sex Education",
+          "Sex Education"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Sex Education"
+      },
+      {
+        "from": [
+          " Trinkets",
+          "Trinkets"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Trinkets"
+      },
+      {
+        "from": [
+          " Feels Like Ishq",
+          "Feels Like Ishq"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Feels Like Ishq"
+      },
+      {
+        "from": [
+          " Historia de un crimen: Colmenares",
+          "Historia de un crimen: Colmenares"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Historia de un crimen: Colmenares"
+      },
+      {
+        "from": [
+          " Fate: The Winx Saga",
+          "Fate: The Winx Saga"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Fate: The Winx Saga"
+      },
+      {
+        "from": [
+          " Murder Among the Mormons",
+          "Murder Among the Mormons"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Murder Among the Mormons"
+      },
+      {
+        "from": [
+          " Sugar Rush Christmas",
+          "Sugar Rush Christmas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Sugar Rush Christmas"
+      },
+      {
+        "from": [
+          " Kalifat",
+          "Kalifat"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Kalifat"
+      },
+      {
+        "from": [
+          " Love Is Blind",
+          "Love Is Blind"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Love Is Blind"
+      },
+      {
+        "from": [
+          " Bridgerton",
+          "Bridgerton"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Bridgerton"
+      },
+      {
+        "from": [
+          " So Not Worth It",
+          "So Not Worth It"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " So Not Worth It"
+      },
+      {
+        "from": [
+          " Inside Bill's Brain: Decoding Bill Gates",
+          "Inside Bill's Brain: Decoding Bill Gates"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Inside Bill's Brain: Decoding Bill Gates"
+      },
+      {
+        "from": [
+          " Greenleaf",
+          "Greenleaf"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Greenleaf"
+      },
+      {
+        "from": [
+          " Scams",
+          "Scams"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Scams"
+      },
+      {
+        "from": [
+          " Ask 101",
+          "Ask 101"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Ask 101"
+      },
+      {
+        "from": [
+          " The Windsors",
+          "The Windsors"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Windsors"
+      },
+      {
+        "from": [
+          " The Politician",
+          "The Politician"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Politician"
+      },
+      {
+        "from": [
+          " You vs. Wild",
+          "You vs. Wild"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " You vs. Wild"
+      },
+      {
+        "from": [
+          " Jamtara: Sabka Number Ayega",
+          "Jamtara: Sabka Number Ayega"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Jamtara: Sabka Number Ayega"
+      },
+      {
+        "from": [
+          " Criminal: UK",
+          "Criminal: UK"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Criminal: UK"
+      },
+      {
+        "from": [
+          " The Stranger",
+          "The Stranger"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Stranger"
+      },
+      {
+        "from": [
+          " The End of the F***ing World",
+          "The End of the F***ing World"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The End of the F***ing World"
+      },
+      {
+        "from": [
+          " La Línea: La Sombra del Narco",
+          "La Línea: La Sombra del Narco"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " La Línea: La Sombra del Narco"
+      },
+      {
+        "from": [
+          " Black Summer",
+          "Black Summer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Black Summer"
+      },
+      {
+        "from": [
+          " Lunatics",
+          "Lunatics"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Lunatics"
+      },
+      {
+        "from": [
+          " Vikings: Valhalla",
+          "Vikings: Valhalla"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Vikings: Valhalla"
+      },
+      {
+        "from": [
+          " Stay Close",
+          "Stay Close"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Stay Close"
+      },
+      {
+        "from": [
+          " Modern Family",
+          "Modern Family"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Modern Family"
+      },
+      {
+        "from": [
+          " I Am Not Okay with This",
+          "I Am Not Okay with This"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " I Am Not Okay with This"
+      },
+      {
+        "from": [
+          " Ginny & Georgia",
+          "Ginny & Georgia"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Ginny & Georgia"
+      },
+      {
+        "from": [
+          " The A List",
+          "The A List"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The A List"
+      },
+      {
+        "from": [
+          " Unrecorded Night",
+          "Unrecorded Night"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Unrecorded Night"
+      },
+      {
+        "from": [
+          " El desorden que dejas",
+          "El desorden que dejas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " El desorden que dejas"
+      },
+      {
+        "from": [
+          " The English Game",
+          "The English Game"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The English Game"
+      },
+      {
+        "from": [
+          " Disenchantment",
+          "Disenchantment"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Disenchantment"
+      },
+      {
+        "from": [
+          " Hyena",
+          "Hyena"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Hyena"
+      },
+      {
+        "from": [
+          " The Order",
+          "The Order"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Order"
+      },
+      {
+        "from": [
+          " Challenger: The Final Flight",
+          "Challenger: The Final Flight"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Challenger: The Final Flight"
+      },
+      {
+        "from": [
+          " Taj Mahal 1989",
+          "Taj Mahal 1989"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Taj Mahal 1989"
+      },
+      {
+        "from": [
+          " Street Food: Asia",
+          "Street Food: Asia"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Street Food: Asia"
+      },
+      {
+        "from": [
+          " 3Below: Tales of Arcadia",
+          "3Below: Tales of Arcadia"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " 3Below: Tales of Arcadia"
+      },
+      {
+        "from": [
+          " Jaguar",
+          "Jaguar"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Jaguar"
+      },
+      {
+        "from": [
+          " The Trials of Gabriel Fernandez",
+          "The Trials of Gabriel Fernandez"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Trials of Gabriel Fernandez"
+      },
+      {
+        "from": [
+          " Fuller House",
+          "Fuller House"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Fuller House"
+      },
+      {
+        "from": [
+          " Dead Places",
+          "Dead Places"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Dead Places"
+      },
+      {
+        "from": [
+          " Heart of Invictus",
+          "Heart of Invictus"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Heart of Invictus"
+      },
+      {
+        "from": [
+          " How to Ruin Christmas: The Wedding",
+          "How to Ruin Christmas: The Wedding"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " How to Ruin Christmas: The Wedding"
+      },
+      {
+        "from": [
+          " Kipo and the Age of Wonderbeasts",
+          "Kipo and the Age of Wonderbeasts"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Kipo and the Age of Wonderbeasts"
+      },
+      {
+        "from": [
+          " Army of the Dead: Lost Vegas",
+          "Army of the Dead: Lost Vegas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Army of the Dead: Lost Vegas"
+      },
+      {
+        "from": [
+          " The Mind, Explained",
+          "The Mind, Explained"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Mind, Explained"
+      },
+      {
+        "from": [
+          " The Devil Next Door",
+          "The Devil Next Door"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Devil Next Door"
+      },
+      {
+        "from": [
+          " Family Business",
+          "Family Business"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Family Business"
+      },
+      {
+        "from": [
+          " Transformers: War for Cybertron",
+          "Transformers: War for Cybertron"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Transformers: War for Cybertron"
+      },
+      {
+        "from": [
+          " Hero Mask",
+          "Hero Mask"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Hero Mask"
+      },
+      {
+        "from": [
+          " Russian Doll",
+          "Russian Doll"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Russian Doll"
+      },
+      {
+        "from": [
+          " The Pentaverate",
+          "The Pentaverate"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Pentaverate"
+      },
+      {
+        "from": [
+          " Inside Man",
+          "Inside Man"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Inside Man"
+      },
+      {
+        "from": [
+          " Daniel Spellbound",
+          "Daniel Spellbound"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Daniel Spellbound"
+      },
+      {
+        "from": [
+          " Immigration Nation",
+          "Immigration Nation"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Immigration Nation"
+      },
+      {
+        "from": [
+          " Anatomy of a Scandal",
+          "Anatomy of a Scandal"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Anatomy of a Scandal"
+      },
+      {
+        "from": [
+          " La casa de las flores",
+          "La casa de las flores"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " La casa de las flores"
+      },
+      {
+        "from": [
+          " The Good Place",
+          "The Good Place"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Good Place"
+      },
+      {
+        "from": [
+          " Next in Fashion",
+          "Next in Fashion"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Next in Fashion"
+      },
+      {
+        "from": [
+          " Go! Vive a Tu Manera",
+          "Go! Vive a Tu Manera"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Go! Vive a Tu Manera"
+      },
+      {
+        "from": [
+          " Pose",
+          "Pose"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Pose"
+      },
+      {
+        "from": [
+          " Baahubali: Before the Beginning",
+          "Baahubali: Before the Beginning"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Baahubali: Before the Beginning"
+      },
+      {
+        "from": [
+          " 50M2",
+          "50M2"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " 50M2"
+      },
+      {
+        "from": [
+          " Aseudal Yeondaegi",
+          "Aseudal Yeondaegi"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Aseudal Yeondaegi"
+      },
+      {
+        "from": [
+          " BoJack Horseman",
+          "BoJack Horseman"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " BoJack Horseman"
+      },
+      {
+        "from": [
+          " ÜberWeihnachten",
+          "ÜberWeihnachten"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " ÜberWeihnachten"
+      },
+      {
+        "from": [
+          " A Suitable Boy",
+          "A Suitable Boy"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " A Suitable Boy"
+      },
+      {
+        "from": [
+          " Astérix",
+          "Astérix"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Astérix"
+      },
+      {
+        "from": [
+          " Archive 81",
+          "Archive 81"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Archive 81"
+      },
+      {
+        "from": [
+          "I Do",
+          "I Do, I Do"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "I Do"
+      },
+      {
+        "from": [
+          " Shûmatsu no Valkyrie",
+          "Shûmatsu no Valkyrie"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Shûmatsu no Valkyrie"
+      },
+      {
+        "from": [
+          " You Don't Know Me",
+          "You Don't Know Me"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " You Don't Know Me"
+      },
+      {
+        "from": [
+          " Last Chance U: Basketball",
+          "Last Chance U: Basketball"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Last Chance U: Basketball"
+      },
+      {
+        "from": [
+          " Workin' Moms",
+          "Workin' Moms"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Workin' Moms"
+      },
+      {
+        "from": [
+          " Tribes of Europa",
+          "Tribes of Europa"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Tribes of Europa"
+      },
+      {
+        "from": [
+          " Disparu à jamais",
+          "Disparu à jamais"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Disparu à jamais"
+      },
+      {
+        "from": [
+          " Resident Evil: Infinite Darkness",
+          "Resident Evil: Infinite Darkness"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Resident Evil: Infinite Darkness"
+      },
+      {
+        "from": [
+          " Knightfall",
+          "Knightfall"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Knightfall"
+      },
+      {
+        "from": [
+          "Kingdom",
+          " Kingdom"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kingdom"
+      },
+      {
+        "from": [
+          " Gokushufudo",
+          "Gokushufudo"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Gokushufudo"
+      },
+      {
+        "from": [
+          " ¿Quién Mató a Sara?",
+          "¿Quién Mató a Sara?"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " ¿Quién Mató a Sara?"
+      },
+      {
+        "from": [
+          " The Circle",
+          "The Circle"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Circle"
+      },
+      {
+        "from": [
+          " The Confession Killer",
+          "The Confession Killer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Confession Killer"
+      },
+      {
+        "from": [
+          " Don't F**k with Cats: Hunting an Internet Killer",
+          "Don't F**k with Cats: Hunting an Internet Killer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Don't F**k with Cats: Hunting an Internet Killer"
+      },
+      {
+        "from": [
+          " High-Rise Invasion",
+          "High-Rise Invasion"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " High-Rise Invasion"
+      },
+      {
+        "from": [
+          " The Witcher: Blood Origin",
+          "The Witcher: Blood Origin"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Witcher: Blood Origin"
+      },
+      {
+        "from": [
+          " Tiny Creatures",
+          "Tiny Creatures"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Tiny Creatures"
+      },
+      {
+        "from": [
+          " The 100",
+          "The 100"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The 100"
+      },
+      {
+        "from": [
+          " The Expanding Universe of Ashley Garcia",
+          "The Expanding Universe of Ashley Garcia"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Expanding Universe of Ashley Garcia"
+      },
+      {
+        "from": [
+          " Roman Empire",
+          "Roman Empire"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Roman Empire"
+      },
+      {
+        "from": [
+          " Luis Miguel: La Serie",
+          "Luis Miguel: La Serie"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Luis Miguel: La Serie"
+      },
+      {
+        "from": [
+          " Wir sind die Welle",
+          "Wir sind die Welle"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Wir sind die Welle"
+      },
+      {
+        "from": [
+          " The Protector",
+          "The Protector"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Protector"
+      },
+      {
+        "from": [
+          " El robo del siglo",
+          "El robo del siglo"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " El robo del siglo"
+      },
+      {
+        "from": [
+          " On My Block",
+          "On My Block"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " On My Block"
+      },
+      {
+        "from": [
+          " Magic for Humans by Mago Pop",
+          "Magic for Humans by Mago Pop"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Magic for Humans by Mago Pop"
+      },
+      {
+        "from": [
+          " Jeffrey Epstein: Filthy Rich",
+          "Jeffrey Epstein: Filthy Rich"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Jeffrey Epstein: Filthy Rich"
+      },
+      {
+        "from": [
+          " Mighty Little Bheem",
+          "Mighty Little Bheem"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Mighty Little Bheem"
+      },
+      {
+        "from": [
+          " The Epic Tales of Captain Underpants",
+          "The Epic Tales of Captain Underpants"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Epic Tales of Captain Underpants"
+      },
+      {
+        "from": [
+          " F Is for Family",
+          "F Is for Family"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " F Is for Family"
+      },
+      {
+        "from": [
+          " 1899",
+          "1899"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " 1899"
+      },
+      {
+        "from": [
+          " Age of Samurai: Battle for Japan",
+          "Age of Samurai: Battle for Japan"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Age of Samurai: Battle for Japan"
+      },
+      {
+        "from": [
+          " Move to Heaven",
+          "Move to Heaven"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Move to Heaven"
+      },
+      {
+        "from": [
+          " One Piece",
+          "One Piece"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " One Piece"
+      },
+      {
+        "from": [
+          " Outer Banks",
+          "Outer Banks"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Outer Banks"
+      },
+      {
+        "from": [
+          "S'parta",
+          "Sparta"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "S'parta"
+      },
+      {
+        "from": [
+          " Bom Dia, Verônica",
+          "Bom Dia, Verônica"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Bom Dia, Verônica"
+      },
+      {
+        "from": [
+          " Hache",
+          "Hache"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Hache"
+      },
+      {
+        "from": [
+          " Battle Kitty",
+          "Battle Kitty"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Battle Kitty"
+      },
+      {
+        "from": [
+          " Monster: The Jeffrey Dahmer Story",
+          "Monster: The Jeffrey Dahmer Story"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Monster: The Jeffrey Dahmer Story"
+      },
+      {
+        "from": [
+          " Legends of Tomorrow",
+          "Legends of Tomorrow"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Legends of Tomorrow"
+      },
+      {
+        "from": [
+          " Memorias de Idhún",
+          "Memorias de Idhún"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Memorias de Idhún"
+      },
+      {
+        "from": [
+          " Virgin River",
+          "Virgin River"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Virgin River"
+      },
+      {
+        "from": [
+          " Prank Encounters",
+          "Prank Encounters"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Prank Encounters"
+      },
+      {
+        "from": [
+          " Too Hot to Handle",
+          "Too Hot to Handle"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Too Hot to Handle"
+      },
+      {
+        "from": [
+          " Narcoworld: Dope Stories",
+          "Narcoworld: Dope Stories"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Narcoworld: Dope Stories"
+      },
+      {
+        "from": [
+          "Oh Baby",
+          "Oh Baby..."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oh Baby"
+      },
+      {
+        "from": [
+          " The Umbrella Academy",
+          "The Umbrella Academy"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Umbrella Academy"
+      },
+      {
+        "from": [
+          " The Big Show Show",
+          "The Big Show Show"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Big Show Show"
+      },
+      {
+        "from": [
+          " La casa de papel",
+          "La casa de papel"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " La casa de papel"
+      },
+      {
+        "from": [
+          " Snabba Cash",
+          "Snabba Cash"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Snabba Cash"
+      },
+      {
+        "from": [
+          " Tiny Pretty Things",
+          "Tiny Pretty Things"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Tiny Pretty Things"
+      },
+      {
+        "from": [
+          " Lost Ollie",
+          "Lost Ollie"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Lost Ollie"
+      },
+      {
+        "from": [
+          " The Dragon Prince",
+          "The Dragon Prince"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Dragon Prince"
+      },
+      {
+        "from": [
+          " Gojira shingyura pointo",
+          "Gojira shingyura pointo"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Gojira shingyura pointo"
+      },
+      {
+        "from": [
+          " Meerkat Manor",
+          "Meerkat Manor"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Meerkat Manor"
+      },
+      {
+        "from": [
+          " Totenfrau",
+          "Totenfrau"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Totenfrau"
+      },
+      {
+        "from": [
+          " Dive Club",
+          "Dive Club"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Dive Club"
+      },
+      {
+        "from": [
+          " Rádio Coisa Mais Linda",
+          "Rádio Coisa Mais Linda"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Rádio Coisa Mais Linda"
+      },
+      {
+        "from": [
+          " Paranormal",
+          "Paranormal"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Paranormal"
+      },
+      {
+        "from": [
+          " The Upshaws",
+          "The Upshaws"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Upshaws"
+      },
+      {
+        "from": [
+          " Marianne",
+          "Marianne"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Marianne"
+      },
+      {
+        "from": [
+          " Ghost in the Shell SAC_2045",
+          "Ghost in the Shell SAC_2045"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Ghost in the Shell SAC_2045"
+      },
+      {
+        "from": [
+          " Black Lightning",
+          "Black Lightning"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Black Lightning"
+      },
+      {
+        "from": [
+          " Ben X Jim",
+          "Ben X Jim"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Ben X Jim"
+      },
+      {
+        "from": [
+          " Nisman",
+          "Nisman"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Nisman"
+      },
+      {
+        "from": [
+          " Love, Death & Robots",
+          "Love, Death & Robots"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Love, Death & Robots"
+      },
+      {
+        "from": [
+          " Canine Intervention",
+          "Canine Intervention"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Canine Intervention"
+      },
+      {
+        "from": [
+          " Dash & Lily",
+          "Dash & Lily"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Dash & Lily"
+      },
+      {
+        "from": [
+          " Mama K's Team 4",
+          "Mama K's Team 4"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Mama K's Team 4"
+      },
+      {
+        "from": [
+          " Hit and Run",
+          "Hit and Run"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Hit and Run"
+      },
+      {
+        "from": [
+          " Ridley Jones",
+          "Ridley Jones"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Ridley Jones"
+      },
+      {
+        "from": [
+          " How to Sell Drugs Online (Fast)",
+          "How to Sell Drugs Online (Fast)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " How to Sell Drugs Online (Fast)"
+      },
+      {
+        "from": [
+          " Barbarians",
+          "Barbarians"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Barbarians"
+      },
+      {
+        "from": [
+          " True Story",
+          "True Story"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " True Story"
+      },
+      {
+        "from": [
+          " Ófærð",
+          "Ófærð"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Ófærð"
+      },
+      {
+        "from": [
+          " Castlevania",
+          "Castlevania"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Castlevania"
+      },
+      {
+        "from": [
+          " Midnight Mass",
+          "Midnight Mass"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Midnight Mass"
+      },
+      {
+        "from": [
+          " Mr. Iglesias",
+          "Mr. Iglesias"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Mr. Iglesias"
+      },
+      {
+        "from": [
+          " El caso Alcàsser",
+          "El caso Alcàsser"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " El caso Alcàsser"
+      },
+      {
+        "from": [
+          " Generazione 56K",
+          "Generazione 56K"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Generazione 56K"
+      },
+      {
+        "from": [
+          " Kevin Hart: Don't F**k This Up",
+          "Kevin Hart: Don't F**k This Up"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Kevin Hart: Don't F**k This Up"
+      },
+      {
+        "from": [
+          " Carmen Sandiego",
+          "Carmen Sandiego"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Carmen Sandiego"
+      },
+      {
+        "from": [
+          " Floor Is Lava",
+          "Floor Is Lava"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Floor Is Lava"
+      },
+      {
+        "from": [
+          " Trollhunters",
+          "Trollhunters"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Trollhunters"
+      },
+      {
+        "from": [
+          " Master of None",
+          "Master of None"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Master of None"
+      },
+      {
+        "from": [
+          " Beastars",
+          "Beastars"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Beastars"
+      },
+      {
+        "from": [
+          " Bloodride",
+          "Bloodride"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Bloodride"
+      },
+      {
+        "from": [
+          " Dota: Dragon's Blood",
+          "Dota: Dragon's Blood"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Dota: Dragon's Blood"
+      },
+      {
+        "from": [
+          " Pretty Smart",
+          "Pretty Smart"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Pretty Smart"
+      },
+      {
+        "from": [
+          " Las chicas del cable",
+          "Las chicas del cable"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Las chicas del cable"
+      },
+      {
+        "from": [
+          " Teenage Bounty Hunters",
+          "Teenage Bounty Hunters"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Teenage Bounty Hunters"
+      },
+      {
+        "from": [
+          " The Rain",
+          "The Rain"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Rain"
+      },
+      {
+        "from": [
+          " Cyberpunk: Edgerunners",
+          "Cyberpunk: Edgerunners"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Cyberpunk: Edgerunners"
+      },
+      {
+        "from": [
+          " Cannon Busters",
+          "Cannon Busters"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Cannon Busters"
+      },
+      {
+        "from": [
+          " Oktoberfest: Beer & Blood",
+          "Oktoberfest: Beer & Blood"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Oktoberfest: Beer & Blood"
+      },
+      {
+        "from": [
+          " Onisciente",
+          "Onisciente"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Onisciente"
+      },
+      {
+        "from": [
+          " Unorthodox",
+          "Unorthodox"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Unorthodox"
+      },
+      {
+        "from": [
+          " Tiger King: Murder, Mayhem and Madness",
+          "Tiger King: Murder, Mayhem and Madness"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Tiger King: Murder, Mayhem and Madness"
+      },
+      {
+        "from": [
+          " Alice in Borderland",
+          "Alice in Borderland"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Alice in Borderland"
+      },
+      {
+        "from": [
+          " City of Ghosts",
+          "City of Ghosts"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " City of Ghosts"
+      },
+      {
+        "from": [
+          " Clark",
+          "Clark"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Clark"
+      },
+      {
+        "from": [
+          " Bir Baskadir",
+          "Bir Baskadir"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Bir Baskadir"
+      },
+      {
+        "from": [
+          " The Baby-Sitters Club",
+          "The Baby-Sitters Club"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Baby-Sitters Club"
+      },
+      {
+        "from": [
+          " The Salisbury Poisonings",
+          "The Salisbury Poisonings"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Salisbury Poisonings"
+      },
+      {
+        "from": [
+          " Ju-on: Origins",
+          "Ju-on: Origins"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Ju-on: Origins"
+      },
+      {
+        "from": [
+          " Leila",
+          "Leila"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Leila"
+      },
+      {
+        "from": [
+          " Eden",
+          "Eden"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Eden"
+      },
+      {
+        "from": [
+          " Arcane",
+          "Arcane"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Arcane"
+      },
+      {
+        "from": [
+          " Katla",
+          "Katla"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Katla"
+      },
+      {
+        "from": [
+          " Yeh Kaali Kaali Ankhein",
+          "Yeh Kaali Kaali Ankhein"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Yeh Kaali Kaali Ankhein"
+      },
+      {
+        "from": [
+          " Inside Job",
+          "Inside Job"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Inside Job"
+      },
+      {
+        "from": [
+          " 7Seeds",
+          "7Seeds"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " 7Seeds"
+      },
+      {
+        "from": [
+          " Jack Whitehall: Travels with My Father",
+          "Jack Whitehall: Travels with My Father"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Jack Whitehall: Travels with My Father"
+      },
+      {
+        "from": [
+          " Kus uçusu",
+          "Kus uçusu"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Kus uçusu"
+      },
+      {
+        "from": [
+          " The Gift",
+          "The Gift"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Gift"
+      },
+      {
+        "from": [
+          " Dark",
+          "Dark"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Dark"
+      },
+      {
+        "from": [
+          " Big Mouth",
+          "Big Mouth"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Big Mouth"
+      },
+      {
+        "from": [
+          " StarBeam",
+          "StarBeam"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " StarBeam"
+      },
+      {
+        "from": [
+          " Q-Force",
+          "Q-Force"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Q-Force"
+      },
+      {
+        "from": [
+          " Halston",
+          "Halston"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Halston"
+      },
+      {
+        "from": [
+          " Jupiter's Legacy",
+          "Jupiter's Legacy"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Jupiter's Legacy"
+      },
+      {
+        "from": [
+          " Cobra Kai",
+          "Cobra Kai"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Cobra Kai"
+      },
+      {
+        "from": [
+          " Heartstopper",
+          "Heartstopper"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Heartstopper"
+      },
+      {
+        "from": [
+          " Into the Night",
+          "Into the Night"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Into the Night"
+      },
+      {
+        "from": [
+          " Final Space",
+          "Final Space"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Final Space"
+      },
+      {
+        "from": [
+          " La Reina de Indias y el Conquistador",
+          "La Reina de Indias y el Conquistador"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " La Reina de Indias y el Conquistador"
+      },
+      {
+        "from": [
+          " Blood & Water",
+          "Blood & Water"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Blood & Water"
+      },
+      {
+        "from": [
+          " ¡A cantar!",
+          "¡A cantar!"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " ¡A cantar!"
+      },
+      {
+        "from": [
+          " In from the Cold",
+          "In from the Cold"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " In from the Cold"
+      },
+      {
+        "from": [
+          " Painkiller",
+          "Painkiller"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Painkiller"
+      },
+      {
+        "from": [
+          " RH Project",
+          "RH Project"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " RH Project"
+      },
+      {
+        "from": [
+          " Grand Army",
+          "Grand Army"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Grand Army"
+      },
+      {
+        "from": [
+          " Young Wallander",
+          "Young Wallander"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Young Wallander"
+      },
+      {
+        "from": [
+          " Sexify",
+          "Sexify"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Sexify"
+      },
+      {
+        "from": [
+          " Élite",
+          "Élite"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Élite"
+      },
+      {
+        "from": [
+          " Pandemic: How to Prevent an Outbreak",
+          "Pandemic: How to Prevent an Outbreak"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Pandemic: How to Prevent an Outbreak"
+      },
+      {
+        "from": [
+          " Fatma",
+          "Fatma"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Fatma"
+      },
+      {
+        "from": [
+          " Magic for Humans",
+          "Magic for Humans"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Magic for Humans"
+      },
+      {
+        "from": [
+          " Luna Nera",
+          "Luna Nera"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Luna Nera"
+      },
+      {
+        "from": [
+          " Riverdale",
+          "Riverdale"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Riverdale"
+      },
+      {
+        "from": [
+          " First Kill",
+          "First Kill"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " First Kill"
+      },
+      {
+        "from": [
+          " Bleach: Burîchi",
+          "Bleach: Burîchi"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Bleach: Burîchi"
+      },
+      {
+        "from": [
+          " The Woods",
+          "The Woods"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Woods"
+      },
+      {
+        "from": [
+          " The Imperfects",
+          "The Imperfects"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Imperfects"
+      },
+      {
+        "from": [
+          " Middleditch & Schwartz",
+          "Middleditch & Schwartz"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Middleditch & Schwartz"
+      },
+      {
+        "from": [
+          "First Ladies",
+          "Ladies First"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "First Ladies"
+      },
+      {
+        "from": [
+          " Never Have I Ever",
+          "Never Have I Ever"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Never Have I Ever"
+      },
+      {
+        "from": [
+          " The Society",
+          "The Society"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Society"
+      },
+      {
+        "from": [
+          " Glória",
+          "Glória"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Glória"
+      },
+      {
+        "from": [
+          " Sky Rojo",
+          "Sky Rojo"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Sky Rojo"
+      },
+      {
+        "from": [
+          " Exatlon Challenge",
+          "Exatlon Challenge"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Exatlon Challenge"
+      },
+      {
+        "from": [
+          " Dare Me",
+          "Dare Me"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Dare Me"
+      },
+      {
+        "from": [
+          " Stateless",
+          "Stateless"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Stateless"
+      },
+      {
+        "from": [
+          " Bojwagwan",
+          "Bojwagwan"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Bojwagwan"
+      },
+      {
+        "from": [
+          " The Chair",
+          "The Chair"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Chair"
+      },
+      {
+        "from": [
+          " The Cuphead Show!",
+          "The Cuphead Show!"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Cuphead Show!"
+      },
+      {
+        "from": [
+          " The Last Kingdom",
+          "The Last Kingdom"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Last Kingdom"
+      },
+      {
+        "from": [
+          " The Letter for the King",
+          "The Letter for the King"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Letter for the King"
+      },
+      {
+        "from": [
+          " Good Girls",
+          "Good Girls"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Good Girls"
+      },
+      {
+        "from": [
+          " Buddi",
+          "Buddi"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Buddi"
+      },
+      {
+        "from": [
+          " Vampires",
+          "Vampires"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Vampires"
+      },
+      {
+        "from": [
+          " The Stranded",
+          "The Stranded"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Stranded"
+      },
+      {
+        "from": [
+          " Formula 1: Drive to Survive",
+          "Formula 1: Drive to Survive"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Formula 1: Drive to Survive"
+      },
+      {
+        "from": [
+          " Night on Earth",
+          "Night on Earth"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Night on Earth"
+      },
+      {
+        "from": [
+          " The Queen's Gambit",
+          "The Queen's Gambit"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Queen's Gambit"
+      },
+      {
+        "from": [
+          " My Next Guest Needs No Introduction with David Letterman",
+          "My Next Guest Needs No Introduction with David Letterman"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " My Next Guest Needs No Introduction with David Letterman"
+      },
+      {
+        "from": [
+          " Post Mortem: No One Dies in Skarnes",
+          "Post Mortem: No One Dies in Skarnes"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Post Mortem: No One Dies in Skarnes"
+      },
+      {
+        "from": [
+          " Bee and PuppyCat",
+          "Bee and PuppyCat"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Bee and PuppyCat"
+      },
+      {
+        "from": [
+          " The Serpent",
+          "The Serpent"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Serpent"
+      },
+      {
+        "from": [
+          " Unnatural Selection",
+          "Unnatural Selection"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Unnatural Selection"
+      },
+      {
+        "from": [
+          " Queer Eye",
+          "Queer Eye"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Queer Eye"
+      },
+      {
+        "from": [
+          " Diablero",
+          "Diablero"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Diablero"
+      },
+      {
+        "from": [
+          " Resident Evil",
+          "Resident Evil"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Resident Evil"
+      },
+      {
+        "from": [
+          " Centaurworld",
+          "Centaurworld"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Centaurworld"
+      },
+      {
+        "from": [
+          " Sweet Tooth",
+          "Sweet Tooth"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Sweet Tooth"
+      },
+      {
+        "from": [
+          " Rick and Morty",
+          "Rick and Morty"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Rick and Morty"
+      },
+      {
+        "from": [
+          " Blood of Zeus",
+          "Blood of Zeus"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Blood of Zeus"
+      },
+      {
+        "from": [
+          " The Last Bus",
+          "The Last Bus"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Last Bus"
+      },
+      {
+        "from": [
+          " Wizards",
+          "Wizards"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Wizards"
+      },
+      {
+        "from": [
+          " Caïd",
+          "Caïd"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Caïd"
+      },
+      {
+        "from": [
+          " Alta mar",
+          "Alta mar"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Alta mar"
+      },
+      {
+        "from": [
+          " Brand New Cherry Flavor",
+          "Brand New Cherry Flavor"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Brand New Cherry Flavor"
+      },
+      {
+        "from": [
+          " The Sandman",
+          "The Sandman"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Sandman"
+      },
+      {
+        "from": [
+          " El inocente",
+          "El inocente"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " El inocente"
+      },
+      {
+        "from": [
+          " Surviving Death",
+          "Surviving Death"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Surviving Death"
+      },
+      {
+        "from": [
+          " Colin in Black & White",
+          "Colin in Black & White"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Colin in Black & White"
+      },
+      {
+        "from": [
+          " High Score",
+          "High Score"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " High Score"
+      },
+      {
+        "from": [
+          " After Life",
+          "After Life"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " After Life"
+      },
+      {
+        "from": [
+          " The Witcher",
+          "The Witcher"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Witcher"
+      },
+      {
+        "from": [
+          " Los favoritos de Midas",
+          "Los favoritos de Midas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Los favoritos de Midas"
+      },
+      {
+        "from": [
+          " Vikings",
+          "Vikings"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Vikings"
+      },
+      {
+        "from": [
+          " Inventing Anna",
+          "Inventing Anna"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Inventing Anna"
+      },
+      {
+        "from": [
+          " Man vs. Bee",
+          "Man vs. Bee"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Man vs. Bee"
+      },
+      {
+        "from": [
+          "Yu Yu Hakusho",
+          "Yu yu hakusho"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Yu Yu Hakusho"
+      },
+      {
+        "from": [
+          " Home for Christmas",
+          "Home for Christmas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Home for Christmas"
+      },
+      {
+        "from": [
+          " Sharkdog",
+          "Sharkdog"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Sharkdog"
+      },
+      {
+        "from": [
+          " She",
+          "She"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " She"
+      },
+      {
+        "from": [
+          " Freud",
+          "Freud"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Freud"
+      },
+      {
+        "from": [
+          " Explained",
+          "Explained"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Explained"
+      },
+      {
+        "from": [
+          " Fauda",
+          "Fauda"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Fauda"
+      },
+      {
+        "from": [
+          " Valeria",
+          "Valeria"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Valeria"
+      },
+      {
+        "from": [
+          " Get Organized with the Home Edit",
+          "Get Organized with the Home Edit"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Get Organized with the Home Edit"
+      },
+      {
+        "from": [
+          " Dark Desire",
+          "Dark Desire"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Dark Desire"
+      },
+      {
+        "from": [
+          " Ada Twist, Scientist",
+          "Ada Twist, Scientist"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Ada Twist, Scientist"
+      },
+      {
+        "from": [
+          " Hagane no renkinjutsushi",
+          "Hagane no renkinjutsushi"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Hagane no renkinjutsushi"
+      },
+      {
+        "from": [
+          " Fast & Furious Spy Racers",
+          "Fast & Furious Spy Racers"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Fast & Furious Spy Racers"
+      },
+      {
+        "from": [
+          " I Think You Should Leave with Tim Robinson",
+          "I Think You Should Leave with Tim Robinson"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " I Think You Should Leave with Tim Robinson"
+      },
+      {
+        "from": [
+          " Bangkok Breaking",
+          "Bangkok Breaking"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Bangkok Breaking"
+      },
+      {
+        "from": [
+          " The Lincoln Lawyer",
+          "The Lincoln Lawyer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Lincoln Lawyer"
+      },
+      {
+        "from": [
+          " Son",
+          "Son"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Son"
+      },
+      {
+        "from": [
+          " The Movies That Made Us",
+          "The Movies That Made Us"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Movies That Made Us"
+      },
+      {
+        "from": [
+          " Locke & Key",
+          "Locke & Key"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Locke & Key"
+      },
+      {
+        "from": [
+          " The Boondocks",
+          "The Boondocks"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Boondocks"
+      },
+      {
+        "from": [
+          " AlRawabi School for Girls",
+          "AlRawabi School for Girls"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " AlRawabi School for Girls"
+      },
+      {
+        "from": [
+          " Yankee",
+          "Yankee"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Yankee"
+      },
+      {
+        "from": [
+          " Surviving Summer",
+          "Surviving Summer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Surviving Summer"
+      },
+      {
+        "from": [
+          " Thus Spoke Kishibe Rohan",
+          "Thus Spoke Kishibe Rohan"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Thus Spoke Kishibe Rohan"
+      },
+      {
+        "from": [
+          " Zero",
+          "Zero"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Zero"
+      },
+      {
+        "from": [
+          " Bir Denizalti Hikayesi",
+          "Bir Denizalti Hikayesi"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Bir Denizalti Hikayesi"
+      },
+      {
+        "from": [
+          " Casi Feliz",
+          "Casi Feliz"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Casi Feliz"
+      },
+      {
+        "from": [
+          " Molang",
+          "Molang"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Molang"
+      },
+      {
+        "from": [
+          " Space Force",
+          "Space Force"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Space Force"
+      },
+      {
+        "from": [
+          " Sex/Life",
+          "Sex/Life"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Sex/Life"
+      },
+      {
+        "from": [
+          " The House",
+          "The House"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The House"
+      },
+      {
+        "from": [
+          " Mortel",
+          "Mortel"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Mortel"
+      },
+      {
+        "from": [
+          " Room 2806: The Accusation",
+          "Room 2806: The Accusation"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Room 2806: The Accusation"
+      },
+      {
+        "from": [
+          " Rhythm + Flow",
+          "Rhythm + Flow"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Rhythm + Flow"
+      },
+      {
+        "from": [
+          " The Flash",
+          "The Flash"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " The Flash"
+      },
+      {
+        "from": [
+          " Living Undocumented",
+          "Living Undocumented"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": " Living Undocumented"
+      }
+    ],
+    "description": "Mass edit cells in column MOVIES"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "range",
+          "name": "MOVIES",
+          "expression": "grel:facetCount(value, \"value\", \"MOVIES\")",
+          "columnName": "MOVIES",
+          "from": 1,
+          "to": 66,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "MOVIES",
+    "expression": "grel:value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column MOVIES using expression grel:value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "range",
+          "name": "MOVIES",
+          "expression": "grel:facetCount(value, \"value\", \"MOVIES\")",
+          "columnName": "MOVIES",
+          "from": 1,
+          "to": 66,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "GENRE",
+    "expression": "grel:value.strip()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column GENRE using expression grel:value.strip()"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "range",
+          "name": "MOVIES",
+          "expression": "grel:facetCount(value, \"value\", \"MOVIES\")",
+          "columnName": "MOVIES",
+          "from": 1,
+          "to": 66,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "MOVIES",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Super Crooks",
+          "Supercrooks"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Super Crooks"
+      },
+      {
+        "from": [
+          "Rattlesnake",
+          "Rattlesnakes"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rattlesnake"
+      }
+    ],
+    "description": "Mass edit cells in column MOVIES"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "range",
+          "name": "MOVIES",
+          "expression": "grel:facetCount(value, \"value\", \"MOVIES\")",
+          "columnName": "MOVIES",
+          "from": 1,
+          "to": 66,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "MOVIES",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Parallel",
+          "Parallels"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Parallel"
+      },
+      {
+        "from": [
+          "The Keeper",
+          "The Keepers"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "The Keeper"
+      },
+      {
+        "from": [
+          "Final Girl",
+          "The Final Girl"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Final Girl"
+      }
+    ],
+    "description": "Mass edit cells in column MOVIES"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "range",
+          "name": "MOVIES",
+          "expression": "grel:facetCount(value, \"value\", \"MOVIES\")",
+          "columnName": "MOVIES",
+          "from": 1,
+          "to": 66,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "DIRECTORS",
+    "expression": "grel:if(value.split(\"Directors: \").length() == 2, value.split(\"Directors: \")[1], value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DIRECTORS using expression grel:if(value.split(\"Directors: \").length() == 2, value.split(\"Directors: \")[1], value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ONE-LINE",
+    "expression": "grel:value.strip()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ONE-LINE using expression grel:value.strip()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "STARS",
+    "expression": "grel:value.strip()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column STARS using expression grel:value.strip()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "STARS",
+    "expression": "grel:if(value.split(\"Star: \").length() == 2, value.split(\"Star: \")[1], value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column STARS using expression grel:if(value.split(\"Star: \").length() == 2, value.split(\"Star: \")[1], value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "STARS",
+    "expression": "grel:if(value.startsWith(\"Star:\"), value.substring(5), value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column STARS using expression grel:if(value.startsWith(\"Star:\"), value.substring(5), value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "STARS",
+    "expression": "grel:value.strip()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column STARS using expression grel:value.strip()"
+  },
+  {
+    "op": "core/row-reorder",
+    "mode": "row-based",
+    "sorting": {
+      "criteria": [
+        {
+          "valueType": "string",
+          "column": "MOVIES",
+          "blankPosition": 2,
+          "errorPosition": 1,
+          "reverse": false,
+          "caseSensitive": false
+        }
+      ]
+    },
+    "description": "Reorder rows"
+  },
+  {
+    "op": "core/blank-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "MOVIES",
+    "description": "Blank down cells in column MOVIES"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "MOVIES",
+          "expression": "isBlank(value)",
+          "columnName": "MOVIES",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "STARS",
+          "expression": "isBlank(value)",
+          "columnName": "STARS",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "STARS",
+    "expression": "grel:value+\"Not found\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column STARS using expression grel:value+\"Not found\""
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "RATING",
+          "expression": "isBlank(value)",
+          "columnName": "RATING",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "grel:value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression grel:value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "grel:if(value.length() == 4, value, value.substring(0,4))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression grel:if(value.length() == 4, value, value.substring(0,4))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression value.toNumber()"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "YEAR",
+          "expression": "value.split(' ')",
+          "columnName": "YEAR",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "1",
+                "l": "1"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "YEAR",
+          "expression": "value.split(' ')",
+          "columnName": "YEAR",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2",
+                "l": "2"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "YEAR",
+          "expression": "value.split(' ')",
+          "columnName": "YEAR",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "20",
+                "l": "20"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "YEAR",
+          "expression": "value.split(' ')",
+          "columnName": "YEAR",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "III",
+                "l": "III"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "YEAR",
+          "expression": "value.split(' ')",
+          "columnName": "YEAR",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "XIV",
+                "l": "XIV"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "value.toDate()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression value.toDate()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "YEAR",
+    "expression": "grel:value.datePart('year')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column YEAR using expression grel:value.datePart('year')"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "RunTime",
+    "description": "Remove column RunTime"
+  }
+]
